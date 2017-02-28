@@ -201,7 +201,7 @@ class Yaya < SlackRubyBot::Bot
             icon_url: character.icon_url
           )
         end
-        ExecCommandJob.perform_async(command, data.to_json)
+        ExecCommandJob.perform_later(command, data.to_json)
       end
     end
   end
