@@ -5,5 +5,10 @@
   "addons": [
     "heroku-postgresql",
     "heroku-redis"
-  ]
+  ],
+  "env": {
+    "SLACK_API_TOKEN": {
+      "description": "You Slack API token"
+    }
+  }
 }
