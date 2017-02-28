@@ -1,4 +1,4 @@
-class ExecCommandJob < BaseJob
+class ExecCommandJob < ActiveJob::Base
   queue_as :default
 
   def perform(code_name, params)
