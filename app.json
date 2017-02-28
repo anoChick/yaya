@@ -2,6 +2,9 @@
   "name": "Yaya",
   "description": "SlackBotを作るSlackBot",
   "repository": "https://github.com/anoChick/yaya",
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
+  },
   "addons": [
     "heroku-postgresql",
     "heroku-redis"
