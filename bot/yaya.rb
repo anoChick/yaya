@@ -1,7 +1,8 @@
 class Yaya < SlackRubyBot::Bot
     @characters = []
     @slack_client = nil
-    ROOT_URL = "https://#{ENV['HEROKU_APP_NAME']}.herokuapp.com"
+    ROOT_URL = ENV['ROOT_URL'] || '[ROOT_URL]'
+    DEFAULT_CHARA_NAME = 'yaya'
     def self.characters
       @characters unless @characters.blank?
 
@@ -41,7 +42,7 @@ class Yaya < SlackRubyBot::Bot
           webhook.save!
           client.web_client.chat_postMessage(
             channel: data.channel,
-            text: "#{code_url} こちらのコードをWebhook[#{webhook.name}]として記憶しました！\nエンドポイントは'POST: #{ROOT_URL}/webhooks/#{webhook.uid} 'です。",
+            text: "#{code_url} こちらのコードをWebhook[#{webhook.name}]として記憶しました！\nエンドポイントは'POST: #{File.join(ROOT_URL, 'webhooks', webhook.uid)} 'です。",
             username: webhook.character.name,
             icon_url: webhook.character.icon_url,
             unfurl_links: false
@@ -50,7 +51,7 @@ class Yaya < SlackRubyBot::Bot
       end
 
       chara_name, command, *args = data['text'].split(' ')
-      Character.find_or_create_by(name: 'yaya') if chara_name == 'yaya'
+      Character.find_or_create_by(name: DEFAULT_CHARA_NAME) if chara_name == DEFAULT_CHARA_NAME
 
       charas = characters.transpose[0].join('|')
       match_regexp = Regexp.new "^(#{charas})$"
@@ -77,7 +78,7 @@ class Yaya < SlackRubyBot::Bot
         character = Character.find_by(name: chara_name)
         message = "```\n"
         character.webhooks.each do |webhook|
-          message += "#{webhook.name}( #{ROOT_URL}/webhooks/#{webhook.uid} ) : #{code.url}\n"
+          message += "#{webhook.name}( #{File.join(ROOT_URL, 'webhooks', webhook.uid)} ) : #{code.url}\n"
         end
         message += "```\n"
         client.web_client.chat_postMessage(
