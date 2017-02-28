@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  get 'webhooks/:uid' => 'webhooks#endpoint'
+  post 'webhooks/:uid' => 'webhooks#endpoint'
 end
