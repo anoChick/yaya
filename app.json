@@ -10,5 +10,8 @@
     "SLACK_API_TOKEN": {
       "description": "You Slack API token"
     }
-  }
+  },
+  "labs": [
+    "runtime-dyno-metadata"
+  ]
 }
