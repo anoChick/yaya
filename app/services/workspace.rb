@@ -7,7 +7,6 @@ class Workspace
     end
 
     def run(code, context)
-      @channel = context['channel']
       begin
         eval(code)
       rescue => e
