@@ -16,5 +16,15 @@
     "ROOT_URL": {
       "description": "Webhook server"
     }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    },
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
   }
 }
