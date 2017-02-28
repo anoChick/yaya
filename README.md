@@ -18,18 +18,12 @@ $ heroku local
 
 Your app should now be running on [localhost:5000](http://localhost:5000/).
 
-## Deploying to Heroku
+## Deploy to Heroku
 
-```sh
-$ heroku create
-$ git push heroku master
-$ heroku run rake db:migrate
-$ heroku open
-```
+Hit the button below and update the `SLACK_API_TOKEN` config variable with your [token](http://slack.com/services/new/bot)
 
-or
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/anoChick/yaya)
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 ## Docker
 
