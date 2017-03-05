@@ -1,4 +1,5 @@
 class WebhooksController < ApplicationController
+  protect_from_forgery :except => [:endpoint]
 
   def endpoint
     webhook = Webhook.find_by(uid: params[:uid])
