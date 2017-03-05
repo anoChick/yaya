@@ -7,7 +7,7 @@ class ExecCommandJob < ActiveJob::Base
     user = User.find_by(slack_id: params['user'])
     character = Character.find_by(name: chara_name)
     code = character.codes.find_by(name: code_name)
-    workspace = Workspace.new(user, character,context['channel'])
+    workspace = Workspace.new(user, character,params['channel'])
     workspace.run(code.source_code, params)
   end
 end
