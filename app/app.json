@@ -1,0 +1,22 @@
+{
+  "name": "Yaya",
+  "description": "SlackBotを作るSlackBot",
+  "repository": "https://github.com/anoChick/yaya",
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "env": {
+    "ROOT_URL": {
+      "description": "Webhook server"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
+}
