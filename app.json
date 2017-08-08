@@ -6,15 +6,23 @@
     "postdeploy": "bundle exec rake db:migrate"
   },
   "addons": [
-    "heroku-postgresql"
+    "heroku-postgresql",
+    "heroku-redis"
   ],
   "env": {
+    "SLACK_API_TOKEN": {
+      "description": "You Slack API token"
+    },
     "ROOT_URL": {
       "description": "Webhook server"
     }
   },
   "formation": {
     "web": {
+      "quantity": 1,
+      "size": "free"
+    },
+    "worker": {
       "quantity": 1,
       "size": "free"
     }
