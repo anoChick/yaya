@@ -1,3 +1,113 @@
+Lint/HandleExceptions:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 50
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Max: 15
+
+Metrics/LineLength:
+  Max: 160
+
+Metrics/MethodLength:
+  Max: 30
+  Exclude:
+    - db/migrate/**
+
+Metrics/PerceivedComplexity:
+  Max: 8
+
+Rails/Date:
+  EnforcedStyle: flexible
+
+Rails/HttpPositionalArguments:
+  Enabled: false
+
+Rails/Validation:
+  Enabled: false
+
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/FormatString:
+  EnforcedStyle: percent
+
+Style/GuardClause:
+  MinBodyLength: 7
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Style/NumericLiterals:
+  MinDigits: 12
+
+Style/NumericPredicate:
+  EnforcedStyle: comparison
+
+Style/PerlBackrefs:
+  Enabled: false
+
+Style/RaiseArgs:
+  Enabled: false
+
+Style/RedundantReturn:
+  Enabled: false
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/SignalException:
+  Enabled: false
+
+Style/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: space
+
+Style/SpaceBeforeBlockBraces:
+  EnforcedStyle: space
+
+Style/SpaceInsideRangeLiteral:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: no_comma
+
+Rails/Date:
+  EnforcedStyle: flexible
+
+Rails/Validation:
+  Enabled: false
+
+Metrics/ClassLength:
+  Max: 500
+
+Metrics/ModuleLength:
+  Max: 500
+
 Rails:
   Enabled: true
 AllCops:
