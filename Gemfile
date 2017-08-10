@@ -28,6 +28,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-stack_explorer'
   gem 'rubocop'
+  gem 'rspec-rails', '~> 3.6'
 end
 
 group :development do
