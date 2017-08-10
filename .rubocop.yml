@@ -1,0 +1,11 @@
+Rails:
+  Enabled: true
+AllCops:
+  Exclude:
+    - db/fixtures/**/*
+    - db/schema.rb
+    - bin/**
+    - tmp/**/*
+    - vendor/**/*
+  DisplayCopNames: true
+  TargetRubyVersion: 2.4
