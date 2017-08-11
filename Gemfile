@@ -39,4 +39,5 @@ end
 
 gem 'sidekiq'
 gem 'slack-ruby-bot'
+gem 'mechanize'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
