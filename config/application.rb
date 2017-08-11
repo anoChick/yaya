@@ -24,8 +24,8 @@ module Yaya
     config.load_defaults 5.1
     config.active_job.queue_adapter = :sidekiq
     config.autoload_paths << Rails.root.join('bot')
-    config.autoload_paths << Rails.root.join('app','services')
-    config.autoload_paths << Rails.root.join('app','jobs')
+    config.autoload_paths << Rails.root.join('app', 'services')
+    config.autoload_paths << Rails.root.join('app', 'jobs')
     config.time_zone = 'Tokyo'
     config.api_only = true
   end
