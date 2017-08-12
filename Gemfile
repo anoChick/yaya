@@ -23,6 +23,7 @@ gem 'rails', '~> 5.1.3'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
   gem 'pry-byebug'
   gem 'pry-doc'
   gem 'pry-rails'
@@ -37,7 +38,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+gem 'celluloid-io'
+gem 'mechanize'
 gem 'sidekiq'
 gem 'slack-ruby-bot'
-gem 'mechanize'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
