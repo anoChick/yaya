@@ -28,6 +28,11 @@ module YayaBot
               when :scan
                 match = expression.scan(route)
                 next unless match.any?
+              when :snippet_match
+                next unless data['subtype'] == 'file_share' && data['file']['mode'] == 'snippet'
+                code = current_user.codes.find_by(waiting: true)
+                webhook = current_user.webhooks.find_by(waiting: true)
+                next if code.nil? && webhook.nil?
               end
               called = true
               call = options[:call]
@@ -52,6 +57,11 @@ module YayaBot
         def character_match(match, &block)
           self.routes ||= ActiveSupport::OrderedHash.new
           self.routes[match] = { match_method: :character_match, call: block }
+        end
+
+        def snippet(&block)
+          self.routes ||= ActiveSupport::OrderedHash.new
+          self.routes[Regexp.new('//', Regexp::IGNORECASE)] = { match_method: :snippet_match, call: block }
         end
 
         def current_user
