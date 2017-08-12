@@ -33,6 +33,13 @@ module YayaBot
                 code = current_user.codes.find_by(waiting: true)
                 webhook = current_user.webhooks.find_by(waiting: true)
                 next if code.nil? && webhook.nil?
+                @current_character = (code || webhook).character
+              when :custom_match
+                match = route.match(expression)
+                match ||= route.match(text) if text
+                next unless match
+                next if match.names.include?('bot') && (@current_character = Character.find_by(name: match['bot'])).nil?
+                next if current_character.codes.find_by(name: match['command']).nil?
               end
               called = true
               call = options[:call]
@@ -62,6 +69,15 @@ module YayaBot
         def snippet(&block)
           self.routes ||= ActiveSupport::OrderedHash.new
           self.routes[Regexp.new('//', Regexp::IGNORECASE)] = { match_method: :snippet_match, call: block }
+        end
+
+        def custom_command(&block)
+          custom_match Regexp.new('^(?<bot>\\S+)[\\s](?<command>\\S+)[\\s]*(?<expression>\\S*)$', Regexp::IGNORECASE), &block
+        end
+
+        def custom_match(match, &block)
+          self.routes ||= ActiveSupport::OrderedHash.new
+          self.routes[match] = { match_method: :custom_match, call: block }
         end
 
         def current_user
